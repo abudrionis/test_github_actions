@@ -10,10 +10,11 @@
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
-on: [workflow_dispatch]
-  #push:
-    #branches:
-      #- db-interface
+on: 
+  workflow_dispatch:
+  push:
+    branches: 
+      - main
 
 name: Manually trigger container build and push to AWS ECR
 
@@ -50,4 +51,5 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        echo "buld copleted, image pushed!"
         
