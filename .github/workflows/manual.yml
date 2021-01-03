@@ -53,4 +53,4 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         echo "buld copleted, image pushed!"
-        echo "ssh -i [YOUR_PRIVATE_KEY] [USER]@[HOST] "aws ecr get-login-password --region eu-west-2 | sudo docker login --username AWS --password-stdin [ECR_ADDRESS, for example 443320016617.dkr.ecr.eu-west-2.amazonaws.com]""
+        echo "ssh -i [YOUR_PRIVATE_KEY] [USER]@[HOST] 'aws ecr get-login-password --region eu-west-2 | sudo docker login --username AWS --password-stdin [ECR_ADDRESS, for example 443320016617.dkr.ecr.eu-west-2.amazonaws.com]'"
